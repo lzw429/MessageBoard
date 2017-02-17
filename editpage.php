@@ -39,12 +39,16 @@
 		$pageId = $_POST['pageId'];
 		$menulabel = $_POST['menulabel'];
 		$content = $_POST['content'];
-		$query = "UPDATE pages SET menulabel = ?, content = ? WHERE Id = ?";
+		if($menulabel!='' && $content!='')//如果标题和内容都已填写
+		{
+			$query = "UPDATE pages SET menulabel = ?, content = ? WHERE Id = ?";
 
-		$statement = $databaseConnection->prepare($query);
-		$statement->bind_param('ssd', $menulabel, $content, $pageId);
-		$statement->execute();
-		$statement->store_result();
+			$statement = $databaseConnection->prepare($query);
+			$statement->bind_param('ssd', $menulabel, $content, $pageId);
+			$statement->execute();
+			$statement->store_result();
+		}
+		else echo"请填写标题和内容.";
 
 		if ($statement->error)
 		{
@@ -58,7 +62,7 @@
 		}
 		else
 		{
-			echo '编辑留言失败';
+			echo '编辑留言失败.';
 		}
 	}
 	else
