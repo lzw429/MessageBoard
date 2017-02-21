@@ -50,11 +50,11 @@
             <ol>
                 <li>
                     <label for="menulabel">标题:</label> 
-                    <input type="text" name="menulabel" value="" id="menulabel" />
+                    <input type="text" name="menulabel" value="" id="menulabel"/>
                 </li>
                 <li>
                     <label for="content">内容：</label>
-                    <textarea name="content" id="content"></textarea>
+                    <textarea name="content" id="content" cols="46" rows="10"></textarea>
                 </li>
             </ol>
             <input type="submit" name="submit" value="提交" />
